@@ -14,14 +14,16 @@ import {  MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { HomeComponent } from './components/home/home.component';
-import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptors';
-import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptors';
+
+import { DetailsComponent } from './components/details/details.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
-    HomeComponent
+    HomeComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,20 +35,11 @@ import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptors';
     MatTabsModule,
     MatIconModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    CarouselModule ,
+
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass : HttpHeadersInterceptor,
-      multi : true,
-    },
-    {
-      provide : HTTP_INTERCEPTORS,
-      useClass : HttpErrorsInterceptor,
-      multi : true,
-
-    },
 
   ],
   bootstrap: [AppComponent]
